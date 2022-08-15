@@ -36,6 +36,7 @@ router.get('/countries', async (req, res) => {
                 rows: ["No existe"],
             });
         } else {
+
             res.json(country);
         }
     } else {

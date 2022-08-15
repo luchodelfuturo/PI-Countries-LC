@@ -4,7 +4,8 @@ const initialState = {
     allCountries: [],
     activities: [],
     allActivities: [],
-    countryDetails: {}
+    countryDetails: {},
+    loading: false,
 
 };
 
@@ -127,6 +128,11 @@ function rootReducer(state = initialState, { type, payload }) {
                 allActivities: state.allActivities.filter(
                     (activity) => activity.id !== payload
                 ),
+            };
+        case 'REQUEST_LOADING':
+            return {
+                ...state,
+                loading: true,
             };
         default:
             return state;

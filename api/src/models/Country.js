@@ -14,9 +14,7 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true,
       unique: true,
-      validate: {
-        isCod: true
-      }
+
     },
 
     flag: {
