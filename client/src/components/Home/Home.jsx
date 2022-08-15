@@ -48,10 +48,10 @@ export default function Home() {
   };
 
   useEffect(() => {
-    dispatch(requestLoading());
+    setCurrentPage(1);
     dispatch(getAllCountries());
     setCountryPerPage(10);
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="Home">
@@ -68,7 +68,7 @@ export default function Home() {
       >
         <div>Around The World App</div>
       </div>
-
+      {!loading && <div>Loading...</div>}
       {loading && (
         <div
           style={{
