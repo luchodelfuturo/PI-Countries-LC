@@ -1,0 +1,29 @@
+.card-country {
+  width: 200px;
+  height: 100%;
+  border-radius: 20px;
+  background-color: ghostwhite;
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  letter-spacing: 1px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: black;
+}
+
+.link-card {
+  text-decoration: none;
+}
+.link-card:link {
+  text-decoration: none;
+}
+.link-card:visited {
+  text-decoration: none;
+}

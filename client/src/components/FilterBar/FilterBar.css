@@ -1,0 +1,10 @@
+.FilterBar {
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+
+  gap: 10px;
+}
