@@ -168,36 +168,86 @@ export default function Activities() {
       <div
         style={{
           width: "100%",
-          height: "70px",
+          height: "100px",
           margin: " 0 auto",
           backgroundColor: "blueviolet",
           display: "flex",
+          flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           gap: "10px",
         }}
       >
         Explore the activities
-        {!showForm && (
-          <div>
-            <button onClick={() => setShowForm(!showForm)}>
-              Make an Activity
-            </button>
-            <select
-              disabled={typeof activities === "string"}
-              style={{ textTransform: "uppercase" }}
-              onChange={(e) => handleChangeOrder(e)}
-            >
-              {activitiesInfo.map((activity) => (
-                <option value={activity}>{activity}</option>
-              ))}
-            </select>
-          </div>
-        )}
-        <button onClick={() => history.push("/home/countries")}>
-          {" "}
-          Go back{" "}
-        </button>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            width: "80%",
+            margin: "0 auto",
+            justifyContent: "space-evenly",
+            gap: "8px",
+            fontSize: "70%",
+            backgroundColor: "blueviolet",
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          {!showForm && (
+            <div style={{ display: "flex", width: "60%" }}>
+              <button
+                style={{
+                  backgroundColor: "blueviolet",
+                  border: "none",
+                  color: "white",
+                  width: "33%",
+                  padding: "5px 10px",
+                  borderRadius: "4px",
+                  cursor: "pointer",
+                  fontSize: "120%",
+                }}
+                onClick={() => setShowForm(!showForm)}
+              >
+                Make an Activity
+              </button>
+              <select
+                disabled={typeof activities === "string"}
+                style={{
+                  textTransform: "uppercase",
+                  backgroundColor: "blueviolet",
+                  border: "none",
+                  color: "white",
+                  width: "70%",
+                  padding: "5px 10px",
+                  borderRadius: "4px",
+                  cursor: "pointer",
+                  fontSize: "120%",
+                }}
+                onChange={(e) => handleChangeOrder(e)}
+              >
+                {activitiesInfo.map((activity) => (
+                  <option value={activity}>{activity}</option>
+                ))}
+              </select>
+            </div>
+          )}
+          <button
+            style={{
+              backgroundColor: "blueviolet",
+              border: "none",
+              color: "white",
+              width: "30%",
+              padding: "5px 10px",
+              borderRadius: "4px",
+              cursor: "pointer",
+              fontSize: "120%",
+            }}
+            onClick={() => history.push("/home/countries")}
+          >
+            {" "}
+            Go back{" "}
+          </button>
+        </div>
       </div>
       {/* Container Activities and Form */}
       <div

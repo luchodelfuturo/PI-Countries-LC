@@ -68,83 +68,79 @@ export default function Home() {
       >
         <div>Around The World App</div>
       </div>
-      {!loading && <div>Loading...</div>}
-      {loading && (
+
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "start",
+        }}
+      >
+        <FilterBar handleFilter={handleFilter} handleSort={handleSort} />
+        {/*--- Country Main ---*/}
         <div
           style={{
-            width: "100%",
-            height: "100%",
+            width: "90%",
+            margin: "auto",
+            marginTop: "4px",
             display: "flex",
-            flexDirection: "column",
-            justifyContent: "start",
+
+            justifyContent: "space-around",
           }}
         >
-          {/* <div className="filter-bar">
-          <FilterBar handleFilter={handleFilter} handleSort={handleSort} />
-        </div> */}
-          <FilterBar handleFilter={handleFilter} handleSort={handleSort} />
+          {!currentCountries.includes("No existe") && (
+            <Pagination
+              allCountries={allCountries}
+              countryPerPage={countryPerPage}
+              cambiarPagina={cambiarPagina}
+              currentPage={currentPage}
+            />
+          )}
+        </div>
+        <div style={{ display: "flex" }}>
           <div
             style={{
-              width: "90%",
-              margin: "auto",
-              marginTop: "4px",
+              width: "80%",
+              maxWidth: "1400px",
+              margin: "0 auto",
+              gap: "8px",
+              padding: "20px 0",
+              height: "100%",
+              overflowY: "scroll",
               display: "flex",
-
               justifyContent: "space-around",
+              alignItems: "center",
+              flexWrap: "wrap",
             }}
           >
-            {!currentCountries.includes("No existe") && (
-              <Pagination
-                allCountries={allCountries}
-                countryPerPage={countryPerPage}
-                cambiarPagina={cambiarPagina}
-                currentPage={currentPage}
-              />
+            {!currentCountries.includes("No existe") ? (
+              currentCountries.map((country) => {
+                return (
+                  <div key={country.cod3letras}>
+                    <CountryCard country={country} />
+                    {allCountries.length === 1 && (
+                      <button onClick={() => dispatch(getAllCountries())}>
+                        {" "}
+                        Go Back
+                      </button>
+                    )}
+                  </div>
+                );
+              })
+            ) : (
+              <div>
+                <p>Country not found </p>
+                <button onClick={() => dispatch(getAllCountries())}>
+                  {" "}
+                  Go Back
+                </button>
+              </div>
             )}
           </div>
-          <div style={{ display: "flex" }}>
-            <div
-              style={{
-                width: "80%",
-                maxWidth: "1400px",
-                margin: "0 auto",
-                gap: "8px",
-                padding: "20px 0",
-                height: "100%",
-                overflowY: "scroll",
-                display: "flex",
-                justifyContent: "space-around",
-                alignItems: "center",
-                flexWrap: "wrap",
-              }}
-            >
-              {!currentCountries.includes("No existe") ? (
-                currentCountries.map((country) => {
-                  return (
-                    <div key={country.cod3letras}>
-                      <CountryCard country={country} />
-                      {allCountries.length === 1 && (
-                        <button onClick={() => dispatch(getAllCountries())}>
-                          {" "}
-                          Go Back
-                        </button>
-                      )}
-                    </div>
-                  );
-                })
-              ) : (
-                <div>
-                  <p>Country not found </p>
-                  <button onClick={() => dispatch(getAllCountries())}>
-                    {" "}
-                    Go Back
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }

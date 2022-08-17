@@ -4,7 +4,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 import Home from './components/Home/Home';
 import CountryDetails from './components/CountryDetails/CountryDetails';
 import Activities from './components/Activities/Activities';
-import Page404 from './Page404';
+
 function App() {
   return (
 
@@ -12,9 +12,7 @@ function App() {
       <BrowserRouter>
 
         <Switch>
-          {/* <Route path="*">
-            <Page404 />
-          </Route> */}
+
           <Route exact path="/">
             <LandingPage />
           </Route>
