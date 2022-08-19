@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchByName } from "../../redux/actions";
-export default function SearchBar() {
+export default function SearchBar({ setCurrentPage }) {
   const dispatch = useDispatch();
   const [searchName, setSearchName] = useState();
   const handleInputChange = (e) => {
@@ -13,6 +13,7 @@ export default function SearchBar() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(searchByName(searchName));
+    setCurrentPage(1);
     setSearchName("");
   };
   return (

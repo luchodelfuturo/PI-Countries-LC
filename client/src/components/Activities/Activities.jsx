@@ -13,9 +13,7 @@ import { useHistory } from "react-router-dom";
 export default function Activities() {
   const history = useHistory();
   const seasons = ["summer", "fall", "winter", "spring"];
-  const { countries, activities, allActivities } = useSelector(
-    (state) => state
-  );
+  const { countries, activities } = useSelector((state) => state);
   const dispatch = useDispatch();
   const [input, setInput] = useState({
     name: "",
@@ -194,11 +192,11 @@ export default function Activities() {
           }}
         >
           {!showForm && (
-            <div style={{ display: "flex", width: "60%" }}>
+            <div style={{ display: "flex", width: "60%", gap: "4px" }}>
               <button
                 style={{
                   backgroundColor: "blueviolet",
-                  border: "none",
+                  border: "1px solid white",
                   color: "white",
                   width: "33%",
                   padding: "5px 10px",
@@ -226,7 +224,9 @@ export default function Activities() {
                 onChange={(e) => handleChangeOrder(e)}
               >
                 {activitiesInfo.map((activity) => (
-                  <option value={activity}>{activity}</option>
+                  <option key={activity} value={activity}>
+                    {activity}
+                  </option>
                 ))}
               </select>
             </div>

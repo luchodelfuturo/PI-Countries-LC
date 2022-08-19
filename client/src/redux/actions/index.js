@@ -1,14 +1,10 @@
 import axios from 'axios';
 
-export const requestLoading = () => {
-  return {
-    type: 'REQUEST_LOADING',
-  };
-};
+
 
 export const getAllCountries = () => {
   return (dispatch) => {
-    dispatch(requestLoading());
+
     axios.get(`/countries`).then((response) => {
       dispatch({
         type: 'GET_COUNTRIES',

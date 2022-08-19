@@ -2,7 +2,11 @@ import React from "react";
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
 
-export default function FilterBar({ handleFilter, handleSort }) {
+export default function FilterBar({
+  handleFilter,
+  handleSort,
+  setCurrentPage,
+}) {
   // Opciones del select
   const regions = [
     "All Countries",
@@ -28,7 +32,7 @@ export default function FilterBar({ handleFilter, handleSort }) {
         flexWrap: "wrap",
       }}
     >
-      <SearchBar />
+      <SearchBar setCurrentPage={setCurrentPage} />
 
       <select
         style={{

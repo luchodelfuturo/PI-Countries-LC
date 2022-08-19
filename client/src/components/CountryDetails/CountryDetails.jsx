@@ -18,6 +18,10 @@ export default function CountryDetails() {
     };
   }, [dispatch, cod3letras]);
 
+  const formatNumber = (number) => {
+    return new Intl.NumberFormat().format(number);
+  };
+
   return (
     <>
       <div
@@ -112,7 +116,14 @@ export default function CountryDetails() {
                       )}
                       {countryDetails.population > -2 && (
                         <li>
-                          Population: <span>{countryDetails.population}</span>
+                          Population:{" "}
+                          <span>{formatNumber(countryDetails.population)}</span>
+                        </li>
+                      )}
+                      {countryDetails.area > -2 && (
+                        <li>
+                          Area:{" "}
+                          <span>{formatNumber(countryDetails.area)} km2</span>
                         </li>
                       )}
                       {countryDetails.demonyms && (

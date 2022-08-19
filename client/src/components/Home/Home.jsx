@@ -5,7 +5,6 @@ import {
   filterByRegion,
   getAllCountries,
   orderByName,
-  requestLoading,
 } from "../../redux/actions";
 import CountryCard from "../CountryCard/CountryCard";
 
@@ -16,7 +15,7 @@ import Pagination from "./Pagination";
 export default function Home() {
   const dispatch = useDispatch();
   const allCountries = useSelector((state) => state.countries);
-  const loading = useSelector((state) => state.loading);
+
   //Seteado Pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [ordenado, setOrdenado] = useState("");
@@ -78,7 +77,11 @@ export default function Home() {
           justifyContent: "start",
         }}
       >
-        <FilterBar handleFilter={handleFilter} handleSort={handleSort} />
+        <FilterBar
+          handleFilter={handleFilter}
+          handleSort={handleSort}
+          setCurrentPage={setCurrentPage}
+        />
         {/*--- Country Main ---*/}
         <div
           style={{
